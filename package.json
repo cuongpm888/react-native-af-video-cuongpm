@@ -1,5 +1,5 @@
 {
-  "name": "react-native-af-video-player",
+  "name": "react-native-af-video-cuongpm",
   "version": "0.2.1",
   "dependencies": {
     "react-native-keep-awake": "^2.0.6",
@@ -7,7 +7,7 @@
     "react-native-orientation": "^3.1.0",
     "react-native-slider": "https://github.com/abbasfreestyle/react-native-slider.git",
     "react-native-vector-icons": "^4.4.2",
-    "react-native-video": "^2.0.0"
+    "react-native-video-cuongpm": "https://github.com/cuongpm888/react-native-video-cuongpm.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -18,7 +18,7 @@
     "react-test-renderer": "16.0.0-beta.5"
   },
   "description": "A customisable React Native video player for Android and IOS",
-  "homepage": "https://github.com/abbasfreestyle/react-native-af-video-player#readme",
+  "homepage": "https://github.com/cuongpm888/react-native-af-video-cuongpm",
   "keywords": [
     "react-component",
     "react-native",
@@ -30,8 +30,8 @@
   ],
   "maintainers": [
     {
-      "name": "abbasfreestyle",
-      "email": "abbasfreestyle@gmail.com"
+      "name": "Cuong Pham",
+      "email": "cuongpm88@gmail.com"
     }
   ],
   "license": "MIT",
