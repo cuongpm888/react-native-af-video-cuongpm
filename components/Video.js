@@ -10,7 +10,7 @@ import {
   Image,
   Alert
 } from 'react-native'
-import VideoPlayer from 'react-native-video'
+import VideoPlayer from 'react-native-video-cuongpm'
 import KeepAwake from 'react-native-keep-awake'
 import Orientation from 'react-native-orientation'
 import Icons from 'react-native-vector-icons/MaterialIcons'

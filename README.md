@@ -27,7 +27,7 @@ npm i -S react-native-af-video-player
 Then link
 
 ```shell
-react-native link react-native-video
+react-native link react-native-video-cuongpm
 react-native link react-native-keep-awake
 react-native link react-native-vector-icons
 react-native link react-native-orientation
