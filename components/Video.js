@@ -352,10 +352,13 @@ class Video extends Component {
       onTimedMetadata,
       resizeMode,
       onMorePress,
+      onPrevious,
+      onNext,
       inlineOnly,
       playInBackground,
       playWhenInactive,
-      language
+      language,
+      navigation
     } = this.props
 
     const inline = {
@@ -426,8 +429,11 @@ class Video extends Component {
           title={title}
           more={!!onMorePress}
           onMorePress={() => onMorePress()}
+          onPrevious={() => onPrevious()}
+          onNext={() => onNext()}
           theme={setTheme}
           inlineOnly={inlineOnly}
+          navigation = {navigation}
         />
       </Animated.View>
     )
@@ -470,6 +476,8 @@ Video.propTypes = {
   onError: PropTypes.func,
   onProgress: PropTypes.func,
   onMorePress: PropTypes.func,
+  onPrevious: PropTypes.func,
+  onNext: PropTypes.func,
   onFullScreen: PropTypes.func,
   onTimedMetadata: PropTypes.func,
   rate: PropTypes.number,
@@ -500,6 +508,8 @@ Video.defaultProps = {
   onError: () => {},
   onProgress: () => {},
   onMorePress: undefined,
+  onPrevious: () => {},
+  onNext: () => {},
   onFullScreen: () => {},
   onTimedMetadata: () => {},
   rate: 1,

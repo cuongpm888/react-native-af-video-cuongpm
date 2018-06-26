@@ -122,12 +122,15 @@ class Controls extends Component {
       logo,
       more,
       onMorePress,
+      onPrevious,
+      onNext,
       title,
       progress,
       currentTime,
       duration,
       theme,
-      inlineOnly
+      inlineOnly,
+      navigation
     } = this.props
 
     const { center, ...controlBar } = theme
@@ -141,10 +144,13 @@ class Controls extends Component {
             more={more}
             onMorePress={() => onMorePress()}
             theme={{ title: theme.title, more: theme.more }}
+            navigation = {navigation}
           />
           <Animated.View style={[styles.flex, { transform: [{ scale: this.scale }] }]}>
             <PlayButton
               onPress={() => this.props.togglePlay()}
+              onPrevious={() => this.props.onPrevious()}
+              onNext={() => this.props.onNext()}
               paused={paused}
               loading={loading}
               theme={center}
@@ -186,6 +192,8 @@ Controls.propTypes = {
   onSeek: PropTypes.func.isRequired,
   onSeekRelease: PropTypes.func.isRequired,
   onMorePress: PropTypes.func.isRequired,
+  onPrevious: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
   paused: PropTypes.bool.isRequired,
   inlineOnly: PropTypes.bool.isRequired,
   fullscreen: PropTypes.bool.isRequired,

@@ -7,18 +7,31 @@ const backgroundColor = 'transparent'
 
 const styles = StyleSheet.create({
   playButton: {
-    opacity: 0.9
+    opacity: 0.9,
+    padding: 30
   },
   playContainer: {
     flex: 1,
     backgroundColor,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection: 'row'
   }
 })
 
 const PlayButton = props => (
   <View style={styles.playContainer}>
+  <TouchableOpacity
+      onPress={() => props.onPrevious()}
+    >
+      <Icons
+        style={styles.playButton}
+        name={props.paused ? 'rotate-left' : 'rotate-left'}
+        color={props.theme}
+        size={60}
+      />
+    </TouchableOpacity>
+    
     <TouchableOpacity
       onPress={() => props.onPress()}
     >
@@ -26,7 +39,17 @@ const PlayButton = props => (
         style={styles.playButton}
         name={props.paused ? 'play-circle-outline' : 'pause-circle-outline'}
         color={props.theme}
-        size={75}
+        size={60}
+      />
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => props.onNext()} 
+    >
+      <Icons
+        style={styles.playButton}
+        name={props.paused ? 'rotate-right' : 'rotate-right'}
+        color={props.theme}
+        size={60}
       />
     </TouchableOpacity>
   </View>
@@ -34,6 +57,8 @@ const PlayButton = props => (
 
 PlayButton.propTypes = {
   onPress: PropTypes.func.isRequired,
+  onPrevious: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
   paused: PropTypes.bool.isRequired,
   theme: PropTypes.string.isRequired
 }

@@ -1,16 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  View,
-  StyleSheet,
-  Text,
-  Image
-} from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
 import { ToggleIcon } from './'
 import { checkSource } from './utils'
+import Ionicons from 'react-native-vector-icons/dist/Ionicons'
+import Orientation from 'react-native-orientation'
 
 const backgroundColor = 'transparent'
 
@@ -35,39 +32,39 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     height: 25,
     width: 25
+  },
+  back: {
+    marginLeft: 10,
+    height: 25,
+    width: 25
   }
 })
 
 const TopBar = (props) => {
-  const {
-    logo,
-    more,
-    title,
-    theme,
-    onMorePress
-  } = props
+  const {logo, more, title, theme, onMorePress,navigation } = props
   return (
     <LinearGradient colors={['rgba(0,0,0,0.75)', 'rgba(0,0,0,0)']} style={styles.container}>
       <View style={styles.row}>
-        { logo && <Image style={styles.logo} resizeMode="contain" {...checkSource(logo)} />}
-        <Text
-          style={[styles.title, { color: theme.title }]}
-          numberOfLines={1}
-          ellipsizeMode="tail"
-        >
+        <TouchableOpacity style={styles.back} activeOpacity={0.5} onPress={() => {
+          Orientation.unlockAllOrientations();
+          navigation.goBack(null)
+        }}>
+          <Ionicons name='ios-arrow-back' size={25} color='white' />
+        </TouchableOpacity>
+        {logo && <Image style={styles.logo} resizeMode='contain' {...checkSource(logo)} />}
+        <Text style={[styles.title, { color: theme.title }]} numberOfLines={1} ellipsizeMode='tail'>
           {title}
         </Text>
-        { more &&
-          <ToggleIcon
-            style={styles.more}
-            onPress={() => onMorePress()}
-            paddingRight
-            iconOff="more-horiz"
-            iconOn="more-horiz"
-            theme={theme.more}
-            size={25}
-          />
-        }
+        {more &&
+                                   <ToggleIcon
+                                     style={styles.more}
+                                     onPress={() => onMorePress()}
+                                     paddingRight
+                                     iconOff="more-horiz"
+                                     iconOn="more-horiz"
+                                     theme={theme.more}
+                                     size={25}
+                                   />}
       </View>
     </LinearGradient>
   )
